@@ -1,5 +1,5 @@
 /** 
-* This fine is the declaration of class Bank. It is designed for bank waiting problem.
+* This file is the declaration of class Bank. It is designed for bank waiting problem.
 * Model hypothesis:1. A unit time is five minutes.
 *                  2. The number of customers arriving at per unit time, is similar to normal distribution curve.
 *                  3. The business period of a customer is a uniform distribution. 
