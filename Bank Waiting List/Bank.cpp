@@ -29,10 +29,10 @@ void Bank::update()
 			{
 				int j=workMen[i].cus;  //Get index of his customer.
 				if(cusList[j].timeOut==time) //The customer's service ends.
-					{
-						workMen[i].status=false; //Reset worker's status
-						++vacant; //Increase vaccant number.
-				    }
+				{
+					workMen[i].status=false; //Reset worker's status
+					++vacant; //Increase vaccant number.
+				}
 			}
 		
 		}
@@ -94,17 +94,20 @@ int Bank::customerNumber()
 }
 
 //Return value of normal distribution curve at position t.
-double Bank::normal(double t)
-{
-	double s=fabs(t-48)/48; //Normal distribution depicts the number of customer per unit time. Expectation is 48, Variance is 48
-	int x=100*s;
+double Bank::normal(double t)  //Normal distribution depicts the number of customer per unit time. 
+{      
+	double exception,variance;
+        expectation=48; //Expectation of normal distribution is 48,
+        variance=48;    //Variance    of normal distribution is 48. Two values could be changed when necessary.
+	double s=fabs(t-expectation)/variance; //Change form to standard normal distribution
+	int x=100*s;            //Change to the index of vector Normal_dis
 	return 1-Normal_dis[x];
 
 }
 //Return the number of customer during a unit time.
 int Bank::cusNumber()
 {
-	return 10*normal(time);
+	return 10*normal(time); //Enlarge 10 times.
 }
 
 
